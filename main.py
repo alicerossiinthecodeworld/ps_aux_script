@@ -20,13 +20,29 @@ processes = get_processes()
 
 
 def get_unique_users():
-    values = [str(i["b'USER"]) for i in processes]
-    users = [value.replace("b'", "") for value in values]
-    final_user_list = [user.replace("'", "") for user in users]
-    return sorted(list(set([x for x in final_user_list if final_user_list.count(x) > 1])))
+    values = [i["b'USER"] for i in processes]
+    users = [value.decode('utf-8') for value in values]
+    return sorted(list(set([x for x in users if users.count(x) > 1])))
 
 
 def get_processes_count():
     return len(processes)
 
 
+def get_processes_count_for(user: str):
+    processes_count = 0
+    for process in processes:
+        if process["b'USER"] == bytes(user, 'utf-8'):
+            processes_count = processes_count + 1
+    return processes_count
+
+
+def get_user_processes_count_dict():
+    user_processes_dict = {}
+    for user in get_unique_users():
+        user_processes_dict[user] = get_processes_count_for(user)
+    print(user_processes_dict)
+
+# print(processes)
+
+print(get_unique_users())
