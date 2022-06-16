@@ -1,0 +1,27 @@
+Отчёт о состоянии системы:
+Пользователи системы:['_appleevents', '_applepay', '_assetcache', '_cmiodalassistants', '_coreaudiod', '_distnote', '_driverkit', '_fpsd', '_gamecontrollerd', '_locationd', '_mdnsresponder', '_nsurlsessiond', '_oahd', '_softwareupdate', '_spotlight', '_trustd', '_windowserver', 'alicerossi', 'root']
+Процессов запущено:324
+Пользовательских процессов:
+_appleevents : 2
+_applepay : 2
+_assetcache : 2
+_cmiodalassistants : 8
+_coreaudiod : 2
+_distnote : 2
+_driverkit : 2
+_fpsd : 4
+_gamecontrollerd : 2
+_locationd : 7
+_mdnsresponder : 2
+_nsurlsessiond : 2
+_oahd : 2
+_softwareupdate : 2
+_spotlight : 2
+_trustd : 2
+_windowserver : 2
+alicerossi : 174
+root : 92
+Всего памяти используется:47.00%
+Всего cpu используется:163.9%
+Больше всего памяти использует: /Applications/PyChar%
+Больше всего CPU использует: /Applications/PyChar%

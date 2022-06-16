@@ -36,20 +36,13 @@ def get_processes_count_for(user: str):
     return processes_count
 
 
-def get_user_processes_count_dict():
-    user_processes_dict = {}
-    for user in get_unique_users():
-        user_processes_dict[user] = get_processes_count_for(user)
-    print(user_processes_dict)
-
-
 def get_memory_for_all_processes():
     values = [(i['%MEM']) for i in processes]
     memory = [value.decode('utf-8') for value in values]
     final_number = 0
     for process in memory:
         final_number = final_number + float(process)
-    return final_number
+    return str(final_number)[:5]
 
 
 def get_cpu_for_all_processes():
@@ -58,14 +51,13 @@ def get_cpu_for_all_processes():
     final_cpu = 0
     for process in cpu:
         final_cpu = final_cpu + float(process)
-    return final_cpu
+    return str(final_cpu)[:5]
 
 
 def get_most_memory_consuming_process_name():
     newlist = sorted(processes, key=lambda d: d['%MEM'], reverse=True)
     values = [i["COMMAND\\n'"].decode('utf-8') for i in newlist]
     process_name = values[0]
-    print(values)
     if len(process_name) > 20:
         process_name = process_name[:20]
     return process_name
@@ -75,7 +67,6 @@ def get_most_cpu_consuming_process_name():
     newlist = sorted(processes, key=lambda d: d['%CPU'], reverse=True)
     values = [i["COMMAND\\n'"].decode('utf-8') for i in newlist]
     process_name = values[0]
-    print(values)
     if len(process_name) > 20:
         process_name = process_name[:20]
     return process_name
