@@ -1,9 +1,9 @@
+import sys
 from datetime import datetime
 
 import formatter
 
-filename = datetime.now().strftime("%d-%m-%Y-%H:%M-scan")
-f = open(filename + '.txt', 'w')
-formatter.format_the_report(f)
-
+report = formatter.format_the_report()
+report_file = formatter.write_report_to_file(report)
+sys.stdout.write(report)
 
