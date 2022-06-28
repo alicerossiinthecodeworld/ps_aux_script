@@ -19,8 +19,8 @@ def format_the_report():
     return report
 
 
-def write_report_to_file(report):
-    with open(f"{datetime.now().strftime('%d-%m-%Y-%H:%M-scan')}.txt", "w") as f:
+def write_report_to_file(report, filename):
+    with open(filename, "w") as f:
         f.write(report)
         return f
 
