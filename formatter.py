@@ -10,5 +10,5 @@ def format_the_report(file):
         file.write(f"{user} : {data.get_processes_count_for(user)}\n")
     file.write(f"Всего памяти используется:{data.get_memory_for_all_processes()}%\n")
     file.write(f"Всего cpu используется:{data.get_cpu_for_all_processes()}%\n")
-    file.write(f"Больше всего памяти использует: {data.get_most_memory_consuming_process_name()}%\n")
-    file.write(f"Больше всего CPU использует: {data.get_most_cpu_consuming_process_name()}%\n")
+    file.write(f"Больше всего памяти использует: {data.get_most_memory_consuming_process_name()}\n")
+    file.write(f"Больше всего CPU использует: {data.get_most_cpu_consuming_process_name()}\n")
