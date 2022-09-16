@@ -20,8 +20,7 @@ processes = get_processes()
 
 
 def get_unique_users():
-    users = [i["b'USER"].decode('utf-8') for i in processes]
-    return sorted(list(set([x for x in users if users.count(x) > 1])))
+    return set([i["b'USER"].decode('utf-8') for i in processes])
 
 
 def get_processes_count():
