@@ -55,19 +55,18 @@ def get_cpu_for_all_processes():
 
 
 def get_most_memory_consuming_process_name():
-    newlist = sorted(processes, key=lambda d: d['%MEM'], reverse=True)
-    values = [i["COMMAND\\n'"].decode('utf-8') for i in newlist]
-    process_name = values[0]
+    sorted_max_to_min_mem_processes = sorted(processes, key=lambda processes: [float(processes.get('%MEM'))],
+                                             reverse=True)
+    process_name = sorted_max_to_min_mem_processes[0].get("COMMAND\\n'").decode('utf-8')
     if len(process_name) > 20:
         process_name = process_name[:20]
     return process_name
 
 
 def get_most_cpu_consuming_process_name():
-    newlist = sorted(processes, key=lambda d: d['%CPU'], reverse=True)
-    values = [i["COMMAND\\n'"].decode('utf-8') for i in newlist]
-    process_name = values[0]
+    sorted_max_to_min_cpu_processes = sorted(processes, key=lambda processes: [float(processes.get('%CPU'))],
+                                             reverse=True)
+    process_name = sorted_max_to_min_cpu_processes[0].get("COMMAND\\n'").decode('utf-8')
     if len(process_name) > 20:
         process_name = process_name[:20]
     return process_name
-
